@@ -1,9 +1,11 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>(S.L) Sombra Libertas</title>
+
   <style>
     * {
       margin: 0;
@@ -13,23 +15,25 @@
     }
 
     body {
-      background: #000;
+      background: black;
       color: white;
       overflow-x: hidden;
     }
 
     .page {
       width: 100%;
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      transition: 0.5s;
     }
 
     #home {
-      background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)), url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1920&auto=format&fit=crop') center/cover;
+      background:
+      linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.95)),
+      url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1920&auto=format&fit=crop')
+      center/cover;
       text-align: center;
       padding: 20px;
     }
@@ -37,7 +41,7 @@
     .discord-logo {
       width: 180px;
       margin-bottom: 25px;
-      filter: drop-shadow(0 0 15px red);
+      filter: drop-shadow(0 0 20px red);
       transform: rotate(-8deg);
     }
 
@@ -84,29 +88,37 @@
 
     #formPage {
       display: none;
-      background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.92)), url('a_dark_moody_grunge_background_website_wallpaper.png') center/cover;
-      min-height: 100vh;
-      height: auto;
+
+      background:
+      linear-gradient(rgba(0,0,0,0.86), rgba(0,0,0,0.93)),
+      url('a_dark_moody_grunge_background_website_wallpaper.png')
+      center/cover;
+
       padding: 50px 20px;
     }
 
     .form-box {
       width: 100%;
-      max-width: 750px;
-      background: rgba(0,0,0,0.7);
+      max-width: 800px;
+
+      background: rgba(0,0,0,0.72);
+
       border: 1px solid rgba(255,255,255,0.1);
-      backdrop-filter: blur(6px);
+
+      backdrop-filter: blur(7px);
+
       border-radius: 20px;
+
       padding: 30px;
+
       box-shadow: 0 0 30px rgba(255,0,0,0.2);
     }
 
     .form-box h2 {
       text-align: center;
-      margin-bottom: 30px;
-      font-size: 2rem;
-      color: #fff;
-      text-shadow: 0 0 10px red;
+      margin-bottom: 35px;
+      font-size: 2.2rem;
+      text-shadow: 0 0 15px red;
     }
 
     .question {
@@ -114,21 +126,36 @@
     }
 
     .question p {
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       font-size: 18px;
       font-weight: bold;
     }
 
+    .question small {
+      color: #c9c9c9;
+      display: block;
+      margin-bottom: 12px;
+    }
+
     input[type="text"],
     input[type="number"] {
+
       width: 100%;
+
       padding: 14px;
+
       border-radius: 10px;
+
       border: none;
+
       outline: none;
+
       background: rgba(255,255,255,0.08);
+
       color: white;
+
       font-size: 16px;
+
       margin-bottom: 10px;
     }
 
@@ -137,13 +164,13 @@
     }
 
     .ok-btn {
+      width: 100%;
       background: #202020;
       color: white;
-      width: 100%;
     }
 
     .ok-btn:hover {
-      background: #333;
+      background: #353535;
     }
 
     .choice-buttons {
@@ -161,7 +188,7 @@
 
     .send-btn {
       width: 100%;
-      background: linear-gradient(90deg, #7a0000, red);
+      background: linear-gradient(90deg,#6b0000,red);
       color: white;
       font-size: 20px;
       margin-top: 15px;
@@ -172,30 +199,45 @@
     }
 
     .locked {
-      opacity: 0.7;
+      opacity: 0.65;
       pointer-events: none;
     }
 
-    @media(max-width: 700px) {
-      h1 {
+    .notice {
+      margin-top: 20px;
+      font-size: 13px;
+      color: #bfbfbf;
+      text-align: center;
+    }
+
+    @media(max-width:700px){
+
+      h1{
         font-size: 2rem;
       }
 
-      .buttons {
+      .buttons{
         flex-direction: column;
         width: 100%;
       }
 
-      .buttons button {
+      .buttons button{
         width: 100%;
       }
+
     }
   </style>
 </head>
+
 <body>
 
   <section id="home" class="page">
-    <img class="discord-logo" src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord" />
+
+    <img
+      class="discord-logo"
+      src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png"
+      alt="Discord"
+    >
 
     <h1>Você sofre com Paneleiros de Discord?</h1>
 
@@ -203,112 +245,266 @@
       <button class="yes" onclick="goToForm()">Sim</button>
       <button class="no" onclick="leavePage()">Não</button>
     </div>
+
   </section>
 
   <section id="formPage" class="page">
+
     <div class="form-box">
-      <h2>S.L</h2>
+
+      <h2>S.L — Sombra Libertas</h2>
 
       <div class="question" id="q1">
+
         <p>Qual o ID do Discord do Paneleiro? Coloque o número abaixo.</p>
-        <input type="number" id="discordId" placeholder="Ex: 123456789123456789" />
-        <button class="ok-btn" onclick="lockQuestion('q1', 'discordId')">OK</button>
+
+        <input
+          type="number"
+          id="discordId"
+          placeholder="Ex: 123456789123456789"
+        >
+
+        <button
+          class="ok-btn"
+          onclick="lockQuestion('q1','discordId')"
+        >
+          OK
+        </button>
+
       </div>
 
       <div class="question" id="q2">
+
         <p>Qual o nome de usuário dele? Coloque abaixo.</p>
-        <input type="text" id="username" placeholder="Ex: usuario123" />
-        <button class="ok-btn" onclick="lockQuestion('q2', 'username')">OK</button>
+
+        <input
+          type="text"
+          id="username"
+          placeholder="Ex: usuario123"
+        >
+
+        <button
+          class="ok-btn"
+          onclick="lockQuestion('q2','username')"
+        >
+          OK
+        </button>
+
       </div>
 
       <div class="question" id="q3">
+
         <p>Ele já te ameaçou de alguma forma?</p>
 
         <div class="choice-buttons">
-          <button onclick="setThreat(true, this)">Sim</button>
-          <button onclick="setThreat(false, this)">Não</button>
+
+          <button onclick="setThreat(true,this)">
+            Sim
+          </button>
+
+          <button onclick="setThreat(false,this)">
+            Não
+          </button>
+
         </div>
+
+      </div>
+
+      <div class="question" id="q4">
+
+        <p>
+          Qual seu Discord, ou qualquer rede social ou até e-mail
+          que possamos entrar em contato?
+        </p>
+
+        <small>
+          Certifique-se de deixar sua rede social aberta para contato
+          ou fique de olho em vosso e-mail.
+        </small>
+
+        <input
+          type="text"
+          id="contact"
+          placeholder="Discord, Instagram ou E-mail"
+        >
+
+        <button
+          class="ok-btn"
+          onclick="lockQuestion('q4','contact')"
+        >
+          OK
+        </button>
+
       </div>
 
       <div class="question">
+
         <p>Você possui provas? Se sim, as coloque abaixo.</p>
-        <input type="file" id="proofs" multiple accept="image/*" />
+
+        <input
+          type="file"
+          id="proofs"
+          multiple
+          accept="image/*"
+        >
+
       </div>
 
-      <button class="send-btn" onclick="sendToDiscord()">Enviar</button>
+      <button
+        class="send-btn"
+        onclick="sendToDiscord()"
+      >
+        Enviar
+      </button>
+
+      <div class="notice">
+        Este site pode registrar informações técnicas básicas
+        de acesso para segurança e prevenção de spam.
+      </div>
+
     </div>
+
   </section>
 
   <script>
+
     let threatened = 'Não informado';
 
-    function goToForm() {
+    function goToForm(){
+
       document.getElementById('home').style.display = 'none';
+
       document.getElementById('formPage').style.display = 'flex';
+
     }
 
-    function leavePage() {
-      window.close();
+    function leavePage(){
+
       window.location.href = 'https://google.com';
+
     }
 
-    function lockQuestion(questionId, inputId) {
+    function lockQuestion(questionId,inputId){
+
       const question = document.getElementById(questionId);
+
       const input = document.getElementById(inputId);
 
       input.disabled = true;
+
       question.classList.add('locked');
+
     }
 
-    function setThreat(value, button) {
+    function setThreat(value,button){
+
       threatened = value ? 'Sim' : 'Não';
 
-      const buttons = button.parentElement.querySelectorAll('button');
+      const buttons =
+      button.parentElement.querySelectorAll('button');
 
-      buttons.forEach(btn => btn.classList.remove('selected'));
+      buttons.forEach(btn => {
+
+        btn.classList.remove('selected');
+
+      });
+
       button.classList.add('selected');
+
     }
 
-    async function sendToDiscord() {
-      const discordId = document.getElementById('discordId').value;
-      const username = document.getElementById('username').value;
-      const files = document.getElementById('proofs').files;
+    async function sendToDiscord(){
 
-      if (!discordId || !username) {
-        alert('Preencha todas as informações necessárias.');
+      const discordId =
+      document.getElementById('discordId').value;
+
+      const username =
+      document.getElementById('username').value;
+
+      const contact =
+      document.getElementById('contact').value;
+
+      const files =
+      document.getElementById('proofs').files;
+
+      if(!discordId || !username || !contact){
+
+        alert('Preencha todas as informações.');
+
         return;
+
       }
 
-      const webhookURL = 'https://discord.com/api/webhooks/1509606214177394899/wDcCibjUCaaCvC4u8jZZ3V33HzoHf46jzZb2FWVqTNbWd504Hix5JZVgSHTGOUX3AE7D';
+      const webhookURL =
+      'https://discord.com/api/webhooks/1509606214177394899/wDcCibjUCaaCvC4u8jZZ3V33HzoHf46jzZb2FWVqTNbWd504Hix5JZVgSHTGOUX3AE7D';
 
       const formData = new FormData();
 
-      formData.append('payload_json', JSON.stringify({
-        content:
-`🚨 NOVA DENÚNCIA RECEBIDA! 🚨\n\n🆔 ID DO DISCORD: ${discordId}\n👤 USUÁRIO: ${username}\n⚠️ AMEAÇOU?: ${threatened}`
-      }));
+      formData.append(
+        'payload_json',
 
-      for (let i = 0; i < files.length; i++) {
+        JSON.stringify({
+
+          content:
+
+`🚨 NOVA DENÚNCIA RECEBIDA 🚨
+
+🆔 ID DO DISCORD:
+${discordId}
+
+👤 USUÁRIO:
+${username}
+
+📞 CONTATO:
+${contact}
+
+⚠️ AMEAÇOU?:
+${threatened}`
+
+        })
+
+      );
+
+      for(let i = 0; i < files.length; i++){
+
         formData.append(`file${i}`, files[i]);
+
       }
 
-      try {
-        const response = await fetch(webhookURL, {
-          method: 'POST',
+      try{
+
+        const response = await fetch(webhookURL,{
+
+          method:'POST',
+
           body: formData
+
         });
 
-        if (response.ok) {
+        if(response.ok){
+
           alert('Denúncia enviada com sucesso!');
+
           location.reload();
+
         } else {
+
           alert('Erro ao enviar denúncia.');
+
         }
-      } catch (error) {
+
+      } catch(error){
+
         console.error(error);
+
         alert('Erro ao conectar com o Discord.');
+
       }
+
     }
+
   </script>
+
 </body>
 </html>
+```

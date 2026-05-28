@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>(S.L) Sombra Libertas</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #000;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .page {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      transition: 0.5s;
+    }
+
+    #home {
+      background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)), url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1920&auto=format&fit=crop') center/cover;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .discord-logo {
+      width: 180px;
+      margin-bottom: 25px;
+      filter: drop-shadow(0 0 15px red);
+      transform: rotate(-8deg);
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 30px;
+      text-shadow: 0 0 15px red;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+    }
+
+    button {
+      padding: 14px 35px;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: bold;
+    }
+
+    .yes {
+      background: #00b341;
+      color: white;
+    }
+
+    .yes:hover {
+      background: #00db50;
+      transform: scale(1.05);
+    }
+
+    .no {
+      background: #a30000;
+      color: white;
+    }
+
+    .no:hover {
+      background: red;
+      transform: scale(1.05);
+    }
+
+    #formPage {
+      display: none;
+      background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.92)), url('a_dark_moody_grunge_background_website_wallpaper.png') center/cover;
+      min-height: 100vh;
+      height: auto;
+      padding: 50px 20px;
+    }
+
+    .form-box {
+      width: 100%;
+      max-width: 750px;
+      background: rgba(0,0,0,0.7);
+      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(6px);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 0 30px rgba(255,0,0,0.2);
+    }
+
+    .form-box h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2rem;
+      color: #fff;
+      text-shadow: 0 0 10px red;
+    }
+
+    .question {
+      margin-bottom: 30px;
+    }
+
+    .question p {
+      margin-bottom: 10px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      background: rgba(255,255,255,0.08);
+      color: white;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    input[type="file"] {
+      margin-top: 10px;
+    }
+
+    .ok-btn {
+      background: #202020;
+      color: white;
+      width: 100%;
+    }
+
+    .ok-btn:hover {
+      background: #333;
+    }
+
+    .choice-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .choice-buttons button {
+      flex: 1;
+    }
+
+    .selected {
+      outline: 2px solid #00ff73;
+    }
+
+    .send-btn {
+      width: 100%;
+      background: linear-gradient(90deg, #7a0000, red);
+      color: white;
+      font-size: 20px;
+      margin-top: 15px;
+    }
+
+    .send-btn:hover {
+      transform: scale(1.02);
+    }
+
+    .locked {
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    @media(max-width: 700px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .buttons button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section id="home" class="page">
+    <img class="discord-logo" src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord" />
+
+    <h1>Você sofre com Paneleiros de Discord?</h1>
+
+    <div class="buttons">
+      <button class="yes" onclick="goToForm()">Sim</button>
+      <button class="no" onclick="leavePage()">Não</button>
+    </div>
+  </section>
+
+  <section id="formPage" class="page">
+    <div class="form-box">
+      <h2>S.L</h2>
+
+      <div class="question" id="q1">
+        <p>Qual o ID do Discord do Paneleiro? Coloque o número abaixo.</p>
+        <input type="number" id="discordId" placeholder="Ex: 123456789123456789" />
+        <button class="ok-btn" onclick="lockQuestion('q1', 'discordId')">OK</button>
+      </div>
+
+      <div class="question" id="q2">
+        <p>Qual o nome de usuário dele? Coloque abaixo.</p>
+        <input type="text" id="username" placeholder="Ex: usuario123" />
+        <button class="ok-btn" onclick="lockQuestion('q2', 'username')">OK</button>
+      </div>
+
+      <div class="question" id="q3">
+        <p>Ele já te ameaçou de alguma forma?</p>
+
+        <div class="choice-buttons">
+          <button onclick="setThreat(true, this)">Sim</button>
+          <button onclick="setThreat(false, this)">Não</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <p>Você possui provas? Se sim, as coloque abaixo.</p>
+        <input type="file" id="proofs" multiple accept="image/*" />
+      </div>
+
+      <button class="send-btn" onclick="sendToDiscord()">Enviar</button>
+    </div>
+  </section>
+
+  <script>
+    let threatened = 'Não informado';
+
+    function goToForm() {
+      document.getElementById('home').style.display = 'none';
+      document.getElementById('formPage').style.display = 'flex';
+    }
+
+    function leavePage() {
+      window.close();
+      window.location.href = 'https://google.com';
+    }
+
+    function lockQuestion(questionId, inputId) {
+      const question = document.getElementById(questionId);
+      const input = document.getElementById(inputId);
+
+      input.disabled = true;
+      question.classList.add('locked');
+    }
+
+    function setThreat(value, button) {
+      threatened = value ? 'Sim' : 'Não';
+
+      const buttons = button.parentElement.querySelectorAll('button');
+
+      buttons.forEach(btn => btn.classList.remove('selected'));
+      button.classList.add('selected');
+    }
+
+    async function sendToDiscord() {
+      const discordId = document.getElementById('discordId').value;
+      const username = document.getElementById('username').value;
+      const files = document.getElementById('proofs').files;
+
+      if (!discordId || !username) {
+        alert('Preencha todas as informações necessárias.');
+        return;
+      }
+
+      const webhookURL = 'https://discord.com/api/webhooks/1509606214177394899/wDcCibjUCaaCvC4u8jZZ3V33HzoHf46jzZb2FWVqTNbWd504Hix5JZVgSHTGOUX3AE7D';
+
+      const formData = new FormData();
+
+      formData.append('payload_json', JSON.stringify({
+        content:
+`🚨 NOVA DENÚNCIA RECEBIDA! 🚨\n\n🆔 ID DO DISCORD: ${discordId}\n👤 USUÁRIO: ${username}\n⚠️ AMEAÇOU?: ${threatened}`
+      }));
+
+      for (let i = 0; i < files.length; i++) {
+        formData.append(`file${i}`, files[i]);
+      }
+
+      try {
+        const response = await fetch(webhookURL, {
+          method: 'POST',
+          body: formData
+        });
+
+        if (response.ok) {
+          alert('Denúncia enviada com sucesso!');
+          location.reload();
+        } else {
+          alert('Erro ao enviar denúncia.');
+        }
+      } catch (error) {
+        console.error(error);
+        alert('Erro ao conectar com o Discord.');
+      }
+    }
+  </script>
+</body>
+</html>
